@@ -38,7 +38,7 @@ public class MyList<E> {
         if (size == array.length) {
             reSize(2*array.length);
         }
-        for (int i = size -1; i > k; i--) {
+        for (int i = size -1; i >= k; i--) {
             array[i + 1] = array[i];
         }
         array[k] = newElement;
