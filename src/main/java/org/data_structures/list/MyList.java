@@ -1,6 +1,5 @@
 package org.data_structures.list;
 
-import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class MyList<E> {
@@ -10,8 +9,8 @@ public class MyList<E> {
     private int size; //리스트의 항목 수
 
     private MyList() {
-        array = (E[]) new Object[0];
-        size = 0;
+        this.array = (E[]) new Object[0];
+        this.size = 0;
     }
 
     private MyList(E[] array, int size) {
@@ -19,20 +18,22 @@ public class MyList<E> {
         this.size = size;
     }
 
-    static <E> MyList<E> of(E ...elements) {
+    static <E> MyList<E> testOf(E ...elements) {
         if (elements.length == 0) {
             return new MyList<>();
         }
         return new MyList<>(elements, elements.length);
     }
 
+    public E get(int k) {
+        if (size == 0) {
+            throw new NoSuchElementException();
+        }
+        return array[k];
+    }
+
 
     public int getSize() {
         return size;
-    }
-
-    @Override
-    public String toString() {
-        return Arrays.toString(array);
     }
 }
