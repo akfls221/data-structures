@@ -2,7 +2,6 @@ package org.data_structures.list;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 
 public class MyList<E> {
 
@@ -10,8 +9,8 @@ public class MyList<E> {
 
     private int size; //리스트의 항목 수
 
-    private MyList() {
-        this.array = (E[]) new Object[0];
+    public MyList() {
+        this.array = (E[]) new Object[1];
         this.size = 0;
     }
 

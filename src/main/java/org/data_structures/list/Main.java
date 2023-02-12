@@ -1,6 +1,5 @@
 package org.data_structures.list;
 
-import java.util.List;
 
 public class Main {
 
