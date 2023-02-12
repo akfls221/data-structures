@@ -9,17 +9,20 @@ public class MyList<E> {
 
     private int size; //리스트의 항목 수
 
-    public MyList() {
-        array = (E[]) new Object[1];
+    private MyList() {
+        array = (E[]) new Object[0];
         size = 0;
     }
 
-    public MyList(E[] array, int size) {
+    private MyList(E[] array, int size) {
         this.array = array;
         this.size = size;
     }
 
     static <E> MyList<E> of(E ...elements) {
+        if (elements.length == 0) {
+            return new MyList<>();
+        }
         return new MyList<>(elements, elements.length);
     }
 
@@ -30,9 +33,6 @@ public class MyList<E> {
 
     @Override
     public String toString() {
-        return "MyList{" +
-                "array=" + Arrays.toString(array) +
-                ", size=" + size +
-                '}';
+        return Arrays.toString(array);
     }
 }
