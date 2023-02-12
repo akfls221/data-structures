@@ -34,6 +34,13 @@ public class MyList<E> {
         return array[k];
     }
 
+    public void add(E newElement) {
+        if (size == array.length) {
+            reSize(2*array.length);
+        }
+        array[size++] = newElement;
+    }
+
     public void add(E newElement, int k) {
         if (size == array.length) {
             reSize(2*array.length);
