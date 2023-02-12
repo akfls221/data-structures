@@ -1,6 +1,8 @@
 package org.data_structures.list;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 public class MyList<E> {
 
@@ -32,8 +34,32 @@ public class MyList<E> {
         return array[k];
     }
 
+    public void add(E newElement, int k) {
+        if (size == array.length) {
+            reSize(2*array.length);
+        }
+        for (int i = size -1; i > k; i--) {
+            array[i + 1] = array[i];
+        }
+        array[k] = newElement;
+        size++;
+    }
+
+    private void reSize(int reSize) {
+        Object[] t = new Object[reSize];
+        for (int i = 0; i < this.size; i++) {
+            t[i] = array[i];
+        }
+        array = (E[]) t;
+    }
+
 
     public int getSize() {
         return size;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(array);
     }
 }
