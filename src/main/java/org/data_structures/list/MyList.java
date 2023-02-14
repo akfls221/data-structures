@@ -27,7 +27,7 @@ public class MyList<E> {
     }
 
     public E get(int k) {
-        if (size == 0) {
+        if (size == 0 || k > size) {
             throw new NoSuchElementException();
         }
         return array[k];
