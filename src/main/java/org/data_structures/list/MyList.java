@@ -51,6 +51,21 @@ public class MyList<E> {
         size++;
     }
 
+    public void delete(int k) {
+        if (k > size || size == 0) {
+            throw new NoSuchElementException();
+        }
+
+        for (int i = k; i < size; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
+
+        if (size > 0 && size == array.length / 4) {
+            reSize(array.length / 2);
+        }
+    }
+
     private void reSize(int reSize) {
         Object[] t = new Object[reSize];
         for (int i = 0; i < this.size; i++) {
