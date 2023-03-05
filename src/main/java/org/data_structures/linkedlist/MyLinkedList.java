@@ -45,6 +45,20 @@ public class MyLinkedList<E> {
         size --;
     }
 
+    public int search(E target) {
+        if (this.size == 0) {
+            throw new NoSuchElementException();
+        }
+        Node p = head;
+        for (int i = 0; i < size; i++) {
+            if (p.compareTo(target) == 0) {
+                return i;
+            }
+            p = p.getNext();
+        }
+        return -1;
+    }
+
     @Override
     public String toString() {
         return "MyLinkedList{" +

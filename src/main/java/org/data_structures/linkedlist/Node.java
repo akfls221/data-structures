@@ -1,6 +1,6 @@
 package org.data_structures.linkedlist;
 
-public class Node <E>{
+public class Node <E> implements Comparable{
 
     private E item;
 
@@ -33,5 +33,13 @@ public class Node <E>{
                 "item=" + item +
                 ", next=" + next +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (this.item.equals(o)) {
+            return 0;
+        }
+        return 1;
     }
 }
