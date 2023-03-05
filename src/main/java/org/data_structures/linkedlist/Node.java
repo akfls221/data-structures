@@ -26,4 +26,12 @@ public class Node <E>{
     public void setNext(Node<E> next) {
         this.next = next;
     }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "item=" + item +
+                ", next=" + next +
+                '}';
+    }
 }
