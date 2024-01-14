@@ -1,5 +1,7 @@
 package org.data_structures.doublelinkedlist;
 
+import java.util.NoSuchElementException;
+
 public class DList <E>{
 
     protected DNode head;
@@ -39,5 +41,21 @@ public class DList <E>{
         p.setNext(newNode);
         t.setPrevious(newNode);
         this.size++;
+    }
+
+    /**
+     * 인자로 주어지는 노드 X를 삭제
+     * 
+     * @param x 삭제하려는 노드
+     */
+    public void delete(DNode x) {
+        if (x == null) {
+            throw new NoSuchElementException();
+        }
+        DNode f = x.getPrevious();
+        DNode r = x.getNext();
+        f.setNext(r);
+        r.setPrevious(f);
+        this.size--;
     }
 }
