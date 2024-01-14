@@ -1,4 +1,4 @@
-package org.data_structures.list;
+package org.data_structures.liststructures.list;
 
 
 public class Main {

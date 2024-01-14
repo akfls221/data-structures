@@ -1,4 +1,4 @@
-package org.data_structures.doublelinkedlist;
+package org.data_structures.liststructures.doublelinkedlist;
 
 import java.util.NoSuchElementException;
 

@@ -1,4 +1,4 @@
-package org.data_structures.doublelinkedlist;
+package org.data_structures.liststructures.doublelinkedlist;
 
 /**
  * 이중 연결 리스트

@@ -1,4 +1,4 @@
-package org.data_structures.circularlinkedlist;
+package org.data_structures.liststructures.circularlinkedlist;
 
 public class Node<E> implements Comparable{
 

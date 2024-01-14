@@ -1,4 +1,4 @@
-package org.data_structures.circularlinkedlist;
+package org.data_structures.liststructures.circularlinkedlist;
 
 import java.util.NoSuchElementException;
 

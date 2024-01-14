@@ -1,4 +1,4 @@
-package org.data_structures.linkedlist;
+package org.data_structures.liststructures.linkedlist;
 
 public class Node <E> implements Comparable{
 

@@ -1,4 +1,4 @@
-package org.data_structures.list;
+package org.data_structures.liststructures.list;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;
