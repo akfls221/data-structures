@@ -1,5 +1,6 @@
 package org.data_structures.stackandqueue;
 
+import java.util.Arrays;
 import java.util.EmptyStackException;
 
 public class ArrayStack<E> {
@@ -76,6 +77,12 @@ public class ArrayStack<E> {
         }
         this.s = (E[]) t;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "ArrayStack{" +
+                "s=" + Arrays.toString(s) +
+                ", top=" + top +
+                '}';
+    }
 }
