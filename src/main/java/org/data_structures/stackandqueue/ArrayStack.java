@@ -38,7 +38,8 @@ public class ArrayStack<E> {
             reSize(2*this.s.length);
         }
 
-        this.s[this.top++] = newItem;
+        //추가하기전에 this.top을 1증가 시킨다
+        this.s[++this.top] = newItem;
     }
 
     /**
