@@ -60,4 +60,12 @@ public class ListStack<E> {
 
         return topItem;
     }
+
+    @Override
+    public String toString() {
+        return "ListStack{" +
+                "top=" + top +
+                ", size=" + size +
+                '}';
+    }
 }
