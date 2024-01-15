@@ -1,4 +1,4 @@
-package org.data_structures.stackandqueue;
+package org.data_structures.stackandqueue.arraystack;
 
 import java.util.Arrays;
 import java.util.EmptyStackException;
