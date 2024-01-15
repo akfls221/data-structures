@@ -42,6 +42,28 @@ public class ArrayStack<E> {
     }
 
     /**
+     * 스택의 가장 위의 항목을 삭제한다.
+     *
+     * @return E 삭제된 아이템 반환
+     */
+    public E pop() {
+        //배열이 비어있다면 Exception
+        if (this.isEmpty()) {
+            throw new EmptyStackException();
+        }
+
+        E popItem = s[this.top];
+        //현재 top을 null로 초기화 하고, top을 -1 한다.
+        this.s[this.top--] = null;
+
+        if (this.size() > 0 && this.size() == this.s.length / 4) {
+            reSize(this.s.length/2);
+        }
+
+        return popItem;
+    }
+
+    /**
      * 배열이 꽉찼을 경우 크기를 2배로 늘린다.
      * 
      * @param reSize    새롭게 늘릴 배열 크기
