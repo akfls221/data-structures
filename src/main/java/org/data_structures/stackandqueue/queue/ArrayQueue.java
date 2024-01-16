@@ -4,6 +4,7 @@ import java.util.NoSuchElementException;
 
 /**
  * Front는 빈공란으로 둔다 즉 배역의 1개 원소는 사용하지 않는다.
+ * 선형배열 Queue
  *
  * @param <E>
  */
