@@ -1,5 +1,12 @@
 package org.data_structures.stackandqueue.queue;
 
+import java.util.NoSuchElementException;
+
+/**
+ * Front는 빈공란으로 둔다 즉 배역의 1개 원소는 사용하지 않는다.
+ *
+ * @param <E>
+ */
 public class ArrayQueue <E> {
 
     private E[] queue; // 큐를 위한 배열
@@ -25,6 +32,29 @@ public class ArrayQueue <E> {
         this.rear = (this.rear + 1) % this.queue.length;
         this.queue[this.rear] = newItem;
         this.size++;
+    }
+
+    /**
+     * Queue 삭제 연산
+     * 
+     * @return  E 삭제된 아이템
+     */
+    public E remove() {
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+
+        this.front = (this.front + 1) % this.queue.length;
+        E removeItem = this.queue[this.front];
+        this.queue[this.front] = null;
+
+        this.size--;
+
+        if (this.size > 0 && this.size == this.queue.length/4) {
+            resize(this.queue.length/2);
+        }
+
+        return removeItem;
     }
 
     public int size() {
