@@ -1,10 +1,12 @@
-package org.data_structures.stackandqueue.queue;
+package org.data_structures.stackandqueue.queue.array;
 
 import java.util.NoSuchElementException;
 
 /**
+ * <b>선형배열 Queue</b>
+ *
  * Front는 빈공란으로 둔다 즉 배역의 1개 원소는 사용하지 않는다.
- * 선형배열 Queue
+ * 매먼 empty 체크를 하지 않기 위한 방법으로 원형의 front를 비어있는 곳을 가르킨다.
  *
  * @param <E>
  */
