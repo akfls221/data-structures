@@ -2,6 +2,7 @@ package org.data_structures.stackandqueue;
 
 import org.data_structures.stackandqueue.arraystack.ArrayStack;
 import org.data_structures.stackandqueue.liststack.ListStack;
+import org.data_structures.stackandqueue.queue.array.ArrayQueue;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,5 +30,9 @@ public class Main {
         String stringListPop = stringListStack.pop();
         System.out.println("stringListPop = " + stringListPop);
         System.out.println("stringListStack = " + stringListStack);
+
+
+        ArrayQueue<String> stringArrayQueue = new ArrayQueue<>();
+        stringArrayQueue.add("test");
     }
 }
