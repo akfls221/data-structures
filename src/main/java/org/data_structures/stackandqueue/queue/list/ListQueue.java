@@ -1,5 +1,7 @@
 package org.data_structures.stackandqueue.queue.list;
 
+import java.util.NoSuchElementException;
+
 public class ListQueue <E> {
 
     private Node<E> front;
@@ -28,6 +30,27 @@ public class ListQueue <E> {
 
         this.rear = addItem;
         this.size++;
+    }
+
+    /**
+     * 단순 연결 리스트 Queue 삭제
+     * 
+     * @return E 삭제한 아이템
+     */
+    public E remove() {
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+
+        E frontItem = this.front.getItem();
+        this.front = this.front.getNext();
+
+        if (isEmpty()) {
+            this.rear = null;
+        }
+        this.size--;
+
+        return frontItem;
     }
 
     public int size() {
