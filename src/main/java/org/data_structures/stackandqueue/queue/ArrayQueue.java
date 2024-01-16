@@ -38,10 +38,12 @@ public class ArrayQueue <E> {
     private void resize(int resize) {
         Object[] resizeQueue = new Object[resize];
 
-        for (int i = 0; i < this.queue.length; i++) {
-            resizeQueue[i] = this.queue[i];
+        for (int i = 1, j = this.front + 1; i < this.size; i++, j++) {
+            resizeQueue[i] = this.queue[j % this.queue.length];
         }
 
+        this.front = 0;
+        this.rear = this.size;
         this.queue = (E[]) resizeQueue;
     }
 }
