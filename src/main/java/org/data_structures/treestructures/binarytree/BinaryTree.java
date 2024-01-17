@@ -26,10 +26,18 @@ public class BinaryTree<Key extends Comparable<Key>> {
      * @param node rootNote를 인자로 전달하여 호출한다.
      */
     public void preorder(Node node) {
-        if (!isEmpty()) {
+        if (node != null) {
             System.out.println("key = " + node.getKey());
             preorder(node.getLeft());
             preorder(node.getRight());
+        }
+    }
+
+    public void inorder(Node node) {
+        if (node != null) {
+            inorder(node.getLeft());
+            System.out.println("key = " + node.getKey());
+            inorder(node.getRight());
         }
     }
 }
