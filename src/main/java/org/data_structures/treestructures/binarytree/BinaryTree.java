@@ -29,7 +29,7 @@ public class BinaryTree<Key extends Comparable<Key>> {
     }
 
     /**
-     * 전위순회 방식(NLR / VLR)
+     * 전위순회 방식(NLR / VLR) node -> 왼쪽 -> 오른쪽
      *
      * @param node rootNote를 인자로 전달하여 호출한다.
      */
@@ -42,7 +42,7 @@ public class BinaryTree<Key extends Comparable<Key>> {
     }
 
     /**
-     * 중위 순회 방식(LNR / LVR)
+     * 중위 순회 방식(LNR / LVR) 왼쪽을 다돌고 -> node -> 오른쪽
      *
      * @param node rootNote를 인자로 전달하여 호출한다.
      */
@@ -51,6 +51,19 @@ public class BinaryTree<Key extends Comparable<Key>> {
             inorder(node.getLeft());
             System.out.println("key = " + node.getKey());
             inorder(node.getRight());
+        }
+    }
+
+    /**
+     * 후위 순회 방식(LRN / LRV) 왼쪽을 다돌고 -> 오른쪽을 다돌고 -> node
+     *
+     * @param node rootNote를 인자로 전달하여 호출한다.
+     */
+    public void postOrder(Node node) {
+        if (node != null) {
+            postOrder(node.getLeft());
+            postOrder(node.getRight());
+            System.out.println("key = " + node.getKey());
         }
     }
 }
