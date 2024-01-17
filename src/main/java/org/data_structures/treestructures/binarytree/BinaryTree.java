@@ -19,4 +19,17 @@ public class BinaryTree<Key extends Comparable<Key>> {
     public boolean isEmpty() {
         return this.root == null;
     }
+
+    /**
+     * 전위순회 방식(NLR / VLR)
+     *
+     * @param node rootNote를 인자로 전달하여 호출한다.
+     */
+    public void preorder(Node node) {
+        if (!isEmpty()) {
+            System.out.println("key = " + node.getKey());
+            preorder(node.getLeft());
+            preorder(node.getRight());
+        }
+    }
 }
