@@ -33,6 +33,11 @@ public class BinaryTree<Key extends Comparable<Key>> {
         }
     }
 
+    /**
+     * 중위 순회 방식(LNR / LVR)
+     * 
+     * @param node rootNote를 인자로 전달하여 호출한다.
+     */
     public void inorder(Node node) {
         if (node != null) {
             inorder(node.getLeft());
