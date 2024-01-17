@@ -1,5 +1,13 @@
 package org.data_structures.treestructures.binarytree;
 
+/**
+ * N : Node 노드
+ * V : Visit 방문
+ * L : Left 왼쪽
+ * R : Right 오른쪽
+ *
+ * @param <Key>
+ */
 public class BinaryTree<Key extends Comparable<Key>> {
 
     private Node root;
@@ -35,7 +43,7 @@ public class BinaryTree<Key extends Comparable<Key>> {
 
     /**
      * 중위 순회 방식(LNR / LVR)
-     * 
+     *
      * @param node rootNote를 인자로 전달하여 호출한다.
      */
     public void inorder(Node node) {
