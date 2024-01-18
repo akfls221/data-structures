@@ -19,5 +19,11 @@ public class Main {
 
         System.out.println("레벨순회");
         keyBinaryTree.levelorder(rootNode2);
+
+        System.out.println("size");
+        keyBinaryTree.size(rootNode2);
+
+        System.out.println("heigh");
+        keyBinaryTree.height(rootNode2);
     }
 }
