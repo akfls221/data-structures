@@ -107,4 +107,18 @@ public class BinaryTree<Key extends Comparable<Key>> {
         
         return ((1 + size(node.getLeft())) + size(node.getRight()));
     }
+
+    /**
+     * 높이의 경우 후쉰위 방식으로 가져온다.
+     *
+     * @param node 루트노드
+     * @return 트리의 최대 레벨
+     */
+    public int heigh(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        return (1 + Math.max(heigh(node.getLeft()), heigh(node.getRight())));
+    }
 }
