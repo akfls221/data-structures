@@ -93,4 +93,18 @@ public class BinaryTree<Key extends Comparable<Key>> {
             }
         }
     }
+
+    /**
+     * 사이즈의 경우 후순위 방식으로 가져온다.
+     * 
+     * @param node 루트노드
+     * @return 노드의 전체 수
+     */
+    public int size(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        
+        return ((1 + size(node.getLeft())) + size(node.getRight()));
+    }
 }
