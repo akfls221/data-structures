@@ -121,4 +121,23 @@ public class BinaryTree<Key extends Comparable<Key>> {
 
         return (1 + Math.max(height(node.getLeft()), height(node.getRight())));
     }
+
+    /**
+     * isEqual 전위방식을 사용
+     *
+     * @param n 노드
+     * @param m 비교하려는 다른 노드
+     * @return true/false
+     */
+    public static boolean isEqual(Node n, Node m) {
+        if (n == null || m == null) {
+            return n == m;      //둘 중 하나라도 null 이라면 둘다 null일 경우 true, 하나라도 아니면 false
+        }
+
+        if (n.getKey().compareTo(m.getKey()) != 0) {
+            return false;
+        }
+
+        return (isEqual(n.getLeft(), m.getLeft()) && isEqual(n.getRight(), m.getRight()));
+    }
 }
