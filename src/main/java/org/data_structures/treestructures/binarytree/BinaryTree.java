@@ -1,5 +1,8 @@
 package org.data_structures.treestructures.binarytree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * N : Node 노드
  * V : Visit 방문
@@ -57,13 +60,37 @@ public class BinaryTree<Key extends Comparable<Key>> {
     /**
      * 후위 순회 방식(LRN / LRV) 왼쪽을 다돌고 -> 오른쪽을 다돌고 -> node
      *
-     * @param node rootNote를 인자로 전달하여 호출한다.
+     * @param node rootNode를 인자로 전달하여 호출한다.
      */
     public void postOrder(Node node) {
         if (node != null) {
             postOrder(node.getLeft());
             postOrder(node.getRight());
             System.out.println("key = " + node.getKey());
+        }
+    }
+
+    /**
+     * 레벨 순회 방식  레벨 단위로 왼쪽부터 오른쪽으로 방문
+     *
+     * @param root   rootNode
+     */
+    public void levelorder(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            Node t;
+            t = queue.remove();
+            System.out.println("key = " + t.getKey());
+
+            if (t.getLeft() != null) {
+                queue.add(t.getLeft());
+            }
+
+            if (t.getRight() != null) {
+                queue.add(t.getRight());
+            }
         }
     }
 }
