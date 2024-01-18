@@ -114,11 +114,11 @@ public class BinaryTree<Key extends Comparable<Key>> {
      * @param node 루트노드
      * @return 트리의 최대 레벨
      */
-    public int heigh(Node node) {
+    public int height(Node node) {
         if (node == null) {
             return 0;
         }
 
-        return (1 + Math.max(heigh(node.getLeft()), heigh(node.getRight())));
+        return (1 + Math.max(height(node.getLeft()), height(node.getRight())));
     }
 }
