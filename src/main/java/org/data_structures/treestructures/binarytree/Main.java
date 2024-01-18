@@ -21,9 +21,11 @@ public class Main {
         keyBinaryTree.levelorder(rootNode2);
 
         System.out.println("size");
-        keyBinaryTree.size(rootNode2);
+        int size = keyBinaryTree.size(rootNode2);
+        System.out.println("size = " + size);
 
         System.out.println("heigh");
-        keyBinaryTree.height(rootNode2);
+        int height = keyBinaryTree.height(rootNode2);
+        System.out.println("height = " + height);
     }
 }
