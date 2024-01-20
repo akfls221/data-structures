@@ -23,6 +23,13 @@ public class BST <Key extends Comparable<Key>, Value> {
         return (Key) min(this.root).getKey();
     }
 
+    public void deleteMin() {
+        if (this.root == null) {
+            System.out.println("empty tree");
+        }
+        this.root = this.deleteMin(this.root);
+    }
+
     public Value get(Node node, Key key) {
         if (node == null) { //다음 오른쪽 혹은 왼쪽 서브노드가 없으면 즉, 찾는 노드가 없으면 null 반환
             return null;
@@ -65,6 +72,13 @@ public class BST <Key extends Comparable<Key>, Value> {
         return min(node.getLeft());
     }
 
+    private Node deleteMin(Node node) {
+        if (node.getLeft() == null) {   //최솟값이라면(왼쪽 서브노드가 없다면 최솟값) 오른쪽 노드를 리턴
+            return node.getRight();
+        }
 
+        node.setLeft(deleteMin(node.getLeft()));    //있다면, 왼쪽 서브노드를 계속 찾는다.(결국 오른쪽 노드를 return)
 
+        return node;
+    }
 }
