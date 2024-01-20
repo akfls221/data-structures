@@ -14,11 +14,11 @@ public class Node <Key extends Comparable<Key>, Value> {
         this.right = null;
     }
 
-    public Key getId() {
+    public Key getKey() {
         return id;
     }
 
-    public Value getName() {
+    public Value getValue() {
         return name;
     }
 
