@@ -30,6 +30,10 @@ public class BST <Key extends Comparable<Key>, Value> {
         this.root = this.deleteMin(this.root);
     }
 
+    public void delete(Key key) {
+        this.root = delete(this.root, key);
+    }
+
     public Value get(Node node, Key key) {
         if (node == null) { //다음 오른쪽 혹은 왼쪽 서브노드가 없으면 즉, 찾는 노드가 없으면 null 반환
             return null;
@@ -79,6 +83,34 @@ public class BST <Key extends Comparable<Key>, Value> {
 
         node.setLeft(deleteMin(node.getLeft()));    //있다면, 왼쪽 서브노드를 계속 찾는다.(결국 오른쪽 노드를 return)
 
+        return node;
+    }
+
+    private Node delete(Node node, Key key) {
+        if (node == null) {
+            return null;
+        }
+
+        int t = node.getKey().compareTo(key);
+        if (t > 0) {
+            node.setLeft(delete(node.getLeft(), key));
+        } else if (t < 0) {
+            node.setRight(delete(node.getRight(), key));
+        } else {
+            if (node.getRight() == null) {
+                return node.getLeft();
+            }
+
+            if (node.getLeft() == null) {
+                return node.getRight();
+            }
+
+            Node target = node;
+
+            node = min(target.getRight());
+            node.setRight(deleteMin(target.getRight()));
+            node.setLeft(target.getLeft());
+        }
         return node;
     }
 }
