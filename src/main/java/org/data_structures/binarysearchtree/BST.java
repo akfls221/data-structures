@@ -12,7 +12,7 @@ public class BST <Key extends Comparable<Key>, Value> {
     }
 
     public Value get(Node node, Key key) {
-        if (node == null) {
+        if (node == null) { //다음 오른쪽 혹은 왼쪽 서브노드가 없으면 즉, 찾는 노드가 없으면 null 반환
             return null;
         }
 
