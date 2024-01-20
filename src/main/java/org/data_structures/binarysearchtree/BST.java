@@ -11,6 +11,10 @@ public class BST <Key extends Comparable<Key>, Value> {
         return this.get(this.root, key);
     }
 
+    public void put(Key key, Value value) {
+        this.root = this.put(this.root, key, value);
+    }
+
     public Value get(Node node, Key key) {
         if (node == null) { //다음 오른쪽 혹은 왼쪽 서브노드가 없으면 즉, 찾는 노드가 없으면 null 반환
             return null;
@@ -26,4 +30,23 @@ public class BST <Key extends Comparable<Key>, Value> {
             return (Value) node.getValue();
         }
     }
+
+    public Node put(Node node, Key key, Value value) {
+        if (node == null) {
+            return new Node(key, value);
+        }
+
+        int t = node.getKey().compareTo(key);
+
+        if (t > 0) {
+            node.setLeft(this.put(node.getLeft(), key, value));
+        } else if (t < 0) {
+            node.setRight(this.put(node.getRight(), key, value));
+        } else {
+            node.setValue(value);
+        }
+
+        return node;
+    }
+
 }

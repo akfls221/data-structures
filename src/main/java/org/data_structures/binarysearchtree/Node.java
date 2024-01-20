@@ -30,11 +30,11 @@ public class Node <Key extends Comparable<Key>, Value> {
         return right;
     }
 
-    public void setId(Key id) {
+    public void setKey(Key id) {
         this.id = id;
     }
 
-    public void setName(Value name) {
+    public void setValue(Value name) {
         this.name = name;
     }
 
