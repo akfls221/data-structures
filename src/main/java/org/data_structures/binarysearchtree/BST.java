@@ -15,6 +15,14 @@ public class BST <Key extends Comparable<Key>, Value> {
         this.root = this.put(this.root, key, value);
     }
 
+    public Key min() {
+        if (this.root == null) {
+            return null;
+        }
+
+        return (Key) min(this.root).getKey();
+    }
+
     public Value get(Node node, Key key) {
         if (node == null) { //다음 오른쪽 혹은 왼쪽 서브노드가 없으면 즉, 찾는 노드가 없으면 null 반환
             return null;
@@ -49,14 +57,6 @@ public class BST <Key extends Comparable<Key>, Value> {
         return node;
     }
 
-    public Key min() {
-        if (this.root == null) {
-            return null;
-        }
-
-        return (Key) min(this.root).getKey();
-    }
-
     private Node min(Node node) {
         if (node.getLeft() == null) {  //최솟값 이기때문에 왼쪽 서브트리일 수밖에 없다.(왼쪽 서브트리가 노드기준 작은값이기 때문)
             return node;    //null이라면 해당 null의 부모가 최솟값이 된다.
@@ -64,5 +64,7 @@ public class BST <Key extends Comparable<Key>, Value> {
 
         return min(node.getLeft());
     }
+
+
 
 }
