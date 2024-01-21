@@ -22,9 +22,26 @@ public class Node<Key extends Comparable<Key>, Value> {
      * @return  회전을 완료한 node
      */
     private Node rotateRight(Node node) {
-        Node x = node.left();
+        Node x = node.left;
         node.left = x.right;
         x.right = node;
+
+        node.height = tallerHeight(height(node.left), height(node.right)) + 1;
+        x.height = tallerHeight(height(x.left), height(x.right)) + 1;
+
+        return x;
+    }
+
+    /**
+     * 오른쪽 서브트리가 높아서 불균형이 발생할 때 균형을 위해 왼쪽으로 회전하기 위한 메소드
+     *
+     * @param node 문제가 생긴 node
+     * @return 회전을 완료한 node
+     */
+    private Node rotateLeft(Node node) {
+        Node x = node.right;
+        node.right = x.left;
+        x.left = node;
 
         node.height = tallerHeight(height(node.left), height(node.right)) + 1;
         x.height = tallerHeight(height(x.left), height(x.right)) + 1;
