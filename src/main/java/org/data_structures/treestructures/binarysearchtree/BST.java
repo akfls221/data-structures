@@ -1,4 +1,4 @@
-package org.data_structures.binarysearchtree;
+package org.data_structures.treestructures.binarysearchtree;
 
 public class BST <Key extends Comparable<Key>, Value> {
     public Node root;
