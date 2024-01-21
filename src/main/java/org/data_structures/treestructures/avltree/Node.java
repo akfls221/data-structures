@@ -15,6 +15,12 @@ public class Node<Key extends Comparable<Key>, Value> {
         this.right = null;
     }
 
+    /**
+     * 왼쪽 서브트리가 높아서 불균형이 발생할 때 균형을 위해 오른족으로 회전하기 위한 메소드
+     * 
+     * @param node 회전하기위한 node
+     * @return  회전을 완료한 node
+     */
     private Node rotateRight(Node node) {
         Node x = node.left();
         node.left = x.right;
