@@ -20,6 +20,27 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
         }
     }
 
+    public Value get(Key key) {
+        return this.get(this.root, key);
+    }
+
+    private Value get(Node node, Key key) {
+        if (node == null) {
+            return null;    //탐색 실패
+        }
+
+        int t = node.id.compareTo(key);
+        if (t > 0) {    //왼쪽 서브트리에서 탐색
+            return get(node.left, key);
+        }
+
+        if (t < 0) {    //오른쪽 서브트리에서 탐색
+            return get(node.right, key);
+        }
+
+        return node.name;
+    }
+
     private boolean isEmpty() {
         return this.root == null;
     }
