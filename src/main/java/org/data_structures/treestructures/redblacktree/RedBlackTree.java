@@ -1,5 +1,12 @@
 package org.data_structures.treestructures.redblacktree;
 
+/**
+ * red/black tree simulate
+ * <a>https://www.cs.usfca.edu/~galles/visualization/RedBlack.html</a>
+ *
+ * @param <Key>
+ * @param <Value>
+ */
 public class RedBlackTree<Key extends Comparable<Key>, Value> {
     private static final boolean RED = true;
     private static final boolean BLACK = false;
@@ -39,6 +46,22 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
         }
 
         return node.name;
+    }
+
+    /**
+     * 노드의 오른쪽 레드 Link를 왼쪽으로 옮기는 연산
+     *
+     * @param node
+     * @return  x 변경된 node
+     */
+    private Node rotateLeft(Node node) {
+        Node x = node.right;
+        node.right = x.left;
+        x.left = node;
+        x.color = node.color;
+        node.color = RED;
+
+        return x;
     }
 
     private boolean isEmpty() {
