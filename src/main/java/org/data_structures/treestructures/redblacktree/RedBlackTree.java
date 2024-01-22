@@ -1,6 +1,7 @@
 package org.data_structures.treestructures.redblacktree;
 
 /**
+ *좌편향 RedBlackTree
  * red/black tree simulate
  * <a>https://www.cs.usfca.edu/~galles/visualization/RedBlack.html</a>
  * https://code-lab1.tistory.com/62(블로그)
@@ -47,6 +48,37 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
         }
 
         return node.name;
+    }
+
+    private Node put(Node node, Key key, Value value) {
+        if (node == null) {
+            return new Node(key, value, RED);   //새로 추가되는 노드는 항상 RED
+        }
+
+        int t = key.compareTo(node.id);
+        if (t < 0) {    //key가 비교 노드보다 작은경우 왼쪽에 put
+            node.left = put(node.left, key, value);
+        }
+
+        if (t > 0) {    //key가 비교 노드보다 큰 경우 오른쪽에 put
+            node.right = put(node.right, key, value);
+        }
+
+        node.name = value;  //k가 트리에 있는 경우 value만 갱신
+
+        if (!isRed(node.left) && isRed(node.right)) {   // 오른쪽 자식이 red 이고 왼쪽 자식이 black일 경우 rotateLeft
+            node = rotateLeft(node);
+        }
+
+        if (isRed(node.left) && isRed(node.left.left)) {    // 왼쪽 자식과 왼쪽 손자가 연속하여 레드일 때 rotateRight
+            node = rotateRight(node);
+        }
+
+        if (isRed(node.left) && isRed(node.right)) {    //왼쪽 오른쪽 자식이 모두 red 인경우 flipColors
+            flipColors(node);
+        }
+
+        return node;
     }
 
     /**
