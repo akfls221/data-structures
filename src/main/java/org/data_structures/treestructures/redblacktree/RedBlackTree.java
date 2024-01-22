@@ -81,6 +81,17 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
         return x;
     }
 
+    /**
+     * 색변환 연산
+     * 
+     * @param node
+     */
+    private void flipColors(Node node) {
+        node.color = !node.color;
+        node.left.color = !node.left.color;
+        node.right.color = !node.right.color;
+    }
+
     private boolean isEmpty() {
         return this.root == null;
     }
