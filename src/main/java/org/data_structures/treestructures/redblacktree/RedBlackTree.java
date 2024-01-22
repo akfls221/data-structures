@@ -33,6 +33,11 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
         return this.get(this.root, key);
     }
 
+    public void put(Key key, Value value) {
+        this.root = this.put(this.root, key, value);
+        this.root.color = BLACK;
+    }
+
     private Value get(Node node, Key key) {
         if (node == null) {
             return null;    //탐색 실패
@@ -50,6 +55,14 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
         return node.name;
     }
 
+    /**
+     * 좌편향 RedBlackTree의 삽입
+     * 
+     * @param node 기준 Node
+     * @param key   삽입할 노드의 Key
+     * @param value 삽입할 노드의 value
+     * @return node  모든 과정을 거쳐 삽입된 Node
+     */
     private Node put(Node node, Key key, Value value) {
         if (node == null) {
             return new Node(key, value, RED);   //새로 추가되는 노드는 항상 RED
