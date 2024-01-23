@@ -115,6 +115,28 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
     }
 
     /**
+     * 레드 블랙 트리 규칙에 어긋난 부분을 수정한다.
+     *
+     * @param node
+     * @return
+     */
+    private Node fixUp(Node node) {
+        if (isRed(node.right)) {
+            node = rotateLeft(node);
+        }
+
+        if (isRed(node.left) && isRed(node.left.left)) {
+            node = rotateRight(node);
+        }
+
+        if (isRed(node.left) && isRed(node.right)) {
+            flipColors(node);
+        }
+
+        return node;
+    }
+
+    /**
      * 노드의 오른쪽 레드 Link를 왼쪽으로 옮기는 연산
      *
      * @param node
