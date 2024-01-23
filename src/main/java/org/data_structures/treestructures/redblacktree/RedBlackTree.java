@@ -6,6 +6,8 @@ package org.data_structures.treestructures.redblacktree;
  * <a>https://www.cs.usfca.edu/~galles/visualization/RedBlack.html</a>
  * https://code-lab1.tistory.com/62(블로그)
  *
+ * Java의 TreeMap 과 TreeSet의 기본 자료구조로 사용된다.
+ *
  * @param <Key>
  * @param <Value>
  */
