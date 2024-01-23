@@ -95,6 +95,26 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
     }
 
     /**
+     * 좌편향 레드블랙 트리의 규칙을 위반하지 않는 상태를 유지하기 위해 아래 두 가지 방법으로 레드 link를 왼쪽 아래로 내려 보낸다.
+     * case 1 : n.left 와 n.left.left가 모두 블랙이고, 동시에 n.right.left도 블랙이면 flipColors(node)를 실행한다.
+     * case 2 : n.left와 n.left.left가 모두 블랙이고, 동시에 n.right.left가 레드이면 n.right.left의 레드 link를 왼쪽방향으로 보낸다.
+     *
+     * @param node
+     * @return
+     */
+    private Node moveRedLeft(Node node) {
+        flipColors(node);
+
+        if (isRed(node.left.right)) {
+            node.right = rotateRight(node.right);
+            node = rotateLeft(node);
+            flipColors(node);
+        }
+
+        return node;
+    }
+
+    /**
      * 노드의 오른쪽 레드 Link를 왼쪽으로 옮기는 연산
      *
      * @param node
