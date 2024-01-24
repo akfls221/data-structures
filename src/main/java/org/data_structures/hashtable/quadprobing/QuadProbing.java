@@ -51,4 +51,27 @@ public class QuadProbing<K, V> {
         } while (loopLimit > 0);
         System.out.println("삽입 실패");
     }
+
+    /**
+     * 조회 메서드
+     * 
+     * @param key 키
+     * @return V 값
+     */
+    public V get(K key) {
+        int initialpos = hash(key);
+        int i = initialpos;
+        int j = 1;
+        int loppLimit = 20;     //탐색 시도 제한 횟수
+
+        while (a[i] != null && loppLimit > 0) {
+            if (a[i].equals(key)) { //탐색 성공
+                return d[i];
+            }
+
+            i = (initialpos + j * j++) % M;
+            loppLimit -= 1;
+        }
+        return null;    //탐색 실패
+    }
 }
