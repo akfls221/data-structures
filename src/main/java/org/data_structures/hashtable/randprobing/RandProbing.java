@@ -1,5 +1,7 @@
 package org.data_structures.hashtable.randprobing;
 
+import java.util.Random;
+
 /**
  * 랜덤 조사
  * 점프 시퀀스를 무작위화하여 empty원소를 찾는 충돌 해결 방법(3차 군집화가 발생한다.)
@@ -15,5 +17,36 @@ public class RandProbing<K, V> {
 
     private int hash(K key) { //해시 함수
         return (key.hashCode() & 0x7fffffff) % M; //나눗셉 함수
+    }
+
+    /**
+     * 삽입 메소드
+     *
+     * @param key   키
+     * @param value 값
+     */
+    public void put(K key, V value) {
+        int initialpos = hash(key);
+        int i = initialpos;
+        int loopLimit = 20;
+        Random random = new Random();
+        random.setSeed(10);
+
+        do {
+            if (a[i] == null) { // 삽입 위치 발견
+                a[i] = key; // key를 해시 테이블에 저장
+                d[i] = value; // value를 동일한 인덱스 하에 저장
+                return;
+            }
+
+            if (a[i].equals(key)) { //이미 존재하는 key
+                d[i] = value;       // value만 갱신
+                return;
+            }
+            i = (initialpos + random.nextInt(1000)) % M;
+            loopLimit -= 1;
+
+        } while (loopLimit > 0);
+        System.out.println("저장 실패");
     }
 }
