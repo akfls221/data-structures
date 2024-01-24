@@ -43,4 +43,25 @@ public class LinearProbing<K, V> {
         } while (i != initialpos);
         System.out.println("저장 실패");
     }
+
+    /**
+     * 특정 key로 탐색하는 get 메서드
+     * 
+     * @param key 탐색하려는 key 값
+     * @return V 값
+     */
+    public V get(K key) {
+        int initialpos = hash(key); //초기 위치
+        int i = initialpos;
+        int j = 1;
+
+        while (a[i] != null) { //a[i]가 null이 아니면
+            if (a[i].equals(key)) {
+                return d[i];
+            }
+
+            i = (initialpos + j++) % M; // i = 다음위치
+        }
+        return null; // 탐색 실패
+    }
 }
