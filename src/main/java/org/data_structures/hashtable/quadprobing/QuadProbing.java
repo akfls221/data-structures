@@ -11,11 +11,44 @@ package org.data_structures.hashtable.quadprobing;
  * @param <V>   값
  */
 public class QuadProbing<K, V> {
+    private int N = 0;
     private int M = 13; //테이블 크기
     private K[] a = (K[]) new Object[M]; // 해시 테이블
     private V[] d = (V[]) new Object[M]; // key 관련 데이터 저장
 
     private int hash(K key) { //해시 함수
         return (key.hashCode() & 0x7fffffff) % M; //나눗셉 함수
+    }
+
+    /**
+     * 삽입 메소드 
+     * 
+     * @param key   키
+     * @param value 값
+     */
+    public void put(K key, V value) {   //삽입 연산
+        int initialpos = hash(key); //초기 위치
+        int i = initialpos;
+        int j = 1;  
+        int loopLimit = 20; //저장 시도 횟수 제한
+
+        do {
+            if (a[i] == null) { //삽입 위치 발견
+                a[i] = key; //key를 해시 테이블에 저장
+                d[i] = value;   //key 관련 데이터 저장, 항목 수 1 증가
+                N++;
+                return;
+            }
+
+            if (a[i].equals(key)) { //이미 key 존재
+                d[i] = value;   //value만 갱신
+                return;
+            }
+
+            i = (initialpos + j * j++) % M; // 충돌시 다음 i의 위치
+            loopLimit -= 1;
+
+        } while (loopLimit > 0);
+        System.out.println("삽입 실패");
     }
 }
