@@ -1,4 +1,6 @@
-package org.data_structures.hashtable;
+package org.data_structures.hashtable.linearprobing;
+
+import java.util.Arrays;
 
 /**
  *  해시테이블 개방 주소 방식의 선형 조사
@@ -22,7 +24,7 @@ public class LinearProbing<K, V> {
      * @param key   삽입 하려는 key
      * @param value 삽입 하려는 value
      */
-    private void put(K key, V value) { //삽입 연산
+    public void put(K key, V value) { //삽입 연산
         int initialpos = hash(key); // 초기 시작위치
         int i = initialpos;
         int j = 1;
@@ -63,5 +65,14 @@ public class LinearProbing<K, V> {
             i = (initialpos + j++) % M; // i = 다음위치
         }
         return null; // 탐색 실패
+    }
+
+    @Override
+    public String toString() {
+        return "LinearProbing{" +
+                "M=" + M +
+                ", a=" + Arrays.toString(a) +
+                ", d=" + Arrays.toString(d) +
+                '}';
     }
 }
