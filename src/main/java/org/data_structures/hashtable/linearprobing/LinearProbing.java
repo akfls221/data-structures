@@ -20,7 +20,8 @@ public class LinearProbing<K, V> {
 
     /**
      * key 와 value 저장
-     * 
+     * 바로 다음에 저장하기 때문에 1차군집화가 생길 수 있다.
+     *
      * @param key   삽입 하려는 key
      * @param value 삽입 하려는 value
      */
