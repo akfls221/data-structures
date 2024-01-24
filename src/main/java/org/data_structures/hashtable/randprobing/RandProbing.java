@@ -49,4 +49,27 @@ public class RandProbing<K, V> {
         } while (loopLimit > 0);
         System.out.println("저장 실패");
     }
+
+    /**
+     * 특정 key로 탐색하는 get 메서드
+     *
+     * @param key 탐색하려는 key 값
+     * @return V 값
+     */
+    public V get(K key) {
+        Random random = new Random();
+        random.setSeed(10);
+        int initialpos = hash(key);
+        int i = initialpos;
+        int limitLoop = 20;
+
+        while (a[i] != null && limitLoop > 0) {
+            if (a[i].equals(key)) {
+                return d[i];
+            }
+            i = (initialpos + random.nextInt(1000)) % M;
+            limitLoop -= 1;
+        }
+        return null;
+    }
 }
