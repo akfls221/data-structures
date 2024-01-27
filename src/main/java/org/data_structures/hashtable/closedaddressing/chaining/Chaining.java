@@ -51,4 +51,20 @@ public class Chaining<K, V> {
         }
         a[i] = new Node(key, value, a[i]);  //연결 리스트 첫노드에 삽입
     }
+
+    /**
+     * Chaining 방식 조회
+     *
+     * @param key   조회 키
+     * @return V    조회 값
+     */
+    public V get(K key) {
+        int i = hash(key);
+        for (Node node = a[i]; node != null; node = node.next) {    // 연결 리스트 탐색
+            if (key.equals(node.key)) {
+                return (V) node.value;  //탐색 성공
+            }
+        }
+        return null;
+    }
 }
