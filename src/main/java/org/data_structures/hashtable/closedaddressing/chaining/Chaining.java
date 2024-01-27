@@ -28,4 +28,20 @@ public class Chaining<K, V> {
         return (key.hashCode() & 0x7fffffff) % M;
     }
 
+    /**
+     * Chaining 방식 삽입
+     *
+     * @param key       삽입 키
+     * @param value     삽입 값
+     */
+    public void put(K key, V value) {
+        int i = hash(key); // 삽입하려는 hash값
+        for (Node node = a[i]; node != null; node = node.next) {    //해당 해시에 있는 연결리스트를 순회하며 검색 없다면 맨앞에 삽입
+            if (key.equals(node.key)) { //이미 key가 존재
+                node.value = value; //데이터만 갱신
+                return;
+            }
+        }
+        a[i] = new Node(key, value, a[i]);  //연결 리스트 첫노드에 삽입
+    }
 }
