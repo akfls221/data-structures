@@ -47,4 +47,28 @@ public class DoubleHashing<K, V> {
         } while (loopLimit > 0);
         System.out.println("저장 실패");
     }
+
+    /**
+     * 이중해시 탐색
+     * 
+     * @param key 탐색하려는 key
+     * @return V  해당 값
+     */
+    public V get(K key) {
+        int initialpos = hash(key);     // 초기위치
+        int i = initialpos;
+        int j = 1;
+        int loopLimit = 20;
+        int d = (7 - (int) key % 7);
+
+        while (a[i] != null && loopLimit > 0) {
+            if (a[i].equals(key)) {
+                return dt[i];
+            }
+            i = (initialpos + j * d) % M;   // 다음 탐색 위치
+            j++;
+            loopLimit -= 1;
+        }
+        return null; // 탐색 실패
+    }
 }
