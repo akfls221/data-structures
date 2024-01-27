@@ -1,5 +1,12 @@
 package org.data_structures.hashtable.closedaddressing.chaining;
 
+/**
+ * 폐쇄 주소 방식인 Chining 방식
+ * 키에 대한 해시값에 대응되는 곳에만 키를 저장하며, 충돌이 발생한 키들은 한 위치에 저장된다.
+ *
+ * @param <K>
+ * @param <V>
+ */
 public class Chaining<K, V> {
     private int M = 13; // 테이블 크기
     private Node[] a = new Node[M]; // 해시 테이블
