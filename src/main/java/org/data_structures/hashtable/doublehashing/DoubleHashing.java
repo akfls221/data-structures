@@ -1,5 +1,12 @@
 package org.data_structures.hashtable.doublehashing;
 
+/**
+ * 2개의 해시 함수를 사용하는 충돌 해결 방법이다.
+ * (h(key) + j*d (key)) mod M, j = 0, 1, 2.....
+ *
+ * @param <K>
+ * @param <V>
+ */
 public class DoubleHashing<K, V> {
     private int N = 0;
     private int M = 13; //테이블 크기
