@@ -1,4 +1,4 @@
-package org.data_structures.hashtable.linearprobing;
+package org.data_structures.hashtable.openaddressing.linearprobing;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package org.data_structures.hashtable.quadprobing;
+package org.data_structures.hashtable.openaddressing.quadprobing;
 
 /**
  * 이차조사

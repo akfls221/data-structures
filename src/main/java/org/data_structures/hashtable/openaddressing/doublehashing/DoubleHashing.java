@@ -1,4 +1,4 @@
-package org.data_structures.hashtable.doublehashing;
+package org.data_structures.hashtable.openaddressing.doublehashing;
 
 /**
  * 2개의 해시 함수를 사용하는 충돌 해결 방법이다.

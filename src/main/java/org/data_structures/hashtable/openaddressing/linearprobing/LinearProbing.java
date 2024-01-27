@@ -1,4 +1,4 @@
-package org.data_structures.hashtable.linearprobing;
+package org.data_structures.hashtable.openaddressing.linearprobing;
 
 import java.util.Arrays;
 

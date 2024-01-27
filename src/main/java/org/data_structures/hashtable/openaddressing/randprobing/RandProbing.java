@@ -1,4 +1,4 @@
-package org.data_structures.hashtable.randprobing;
+package org.data_structures.hashtable.openaddressing.randprobing;
 
 import java.util.Random;
 
