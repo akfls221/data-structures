@@ -50,6 +50,17 @@ public class BHeap<Key extends Comparable<Key>, Value> {
         }
     }
 
+    /**
+     * 루트 방향으로 거슬러 올라가며 힙 속성이 어긋나는 경우 부모와 자식을 교환
+     * @param j
+     */
+    private void upheap(int j) {    // j : 현재 노드의 인덱스
+        while (j > 1 && greater(j / 2, j)) {    //현재 노드가 루트가 아니고 동시에 부모가 큰 경우
+            swap(j / 2, j); //부모와 현재 노드 교환
+            j = j / 2;  // 부모가 현재 노드가 되어 다시 반복하기 위함.
+        }
+    }
+
     public int size() {
         return N;
     }
