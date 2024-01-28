@@ -28,6 +28,14 @@ public class Huffman {
     }
 
     /**
+     * 새로운 키를 삽입
+     */
+    public void insert(Entry entry) {
+        a[++N] = entry;  //새로운 키를 배열 마지막 항목 다음에 저장
+        upheap(N);  //위로 올라가며 힙 속성 회복시키기 위해 재정렬
+    }
+
+    /**
      * 최솟값 삭제
      * @return
      */
