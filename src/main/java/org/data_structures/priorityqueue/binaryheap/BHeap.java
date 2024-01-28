@@ -10,6 +10,17 @@ public class BHeap<Key extends Comparable<Key>, Value> {
     }
 
     /**
+     * 상향식 힙 만들기
+     *
+     * 2/N을 하는 이유는 가장 마지막 이파리 노드의 부모에서 부터힙 연산을 수행하기 위함이다.
+     */
+    public void createHeap() {
+        for (int i = 2 / N; i > 0; i--) {
+            downheap(i);
+        }
+    }
+
+    /**
      * 자식 노드와 비교하는 downHeap 메소드
      * @param i
      */
