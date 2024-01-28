@@ -9,4 +9,8 @@ public class Huffman {
         this.a = a;
         N = initialSize;
     }
+
+    private boolean greater(int i, int j) {
+        return a[i].getKey() > a[j].getKey();
+    }
 }
