@@ -32,4 +32,17 @@ public class Huffman {
             i = k;
         }
     }
+
+    /**
+     * i 와 j entry의 순서를 바꿈
+     *
+     * @param i 비교 Entry 1
+     * @param j 비교 Entry 2
+     */
+    private void swap(int i, int j) {
+        Entry temp = a[i];
+
+        a[i] = a[j];
+        a[j] = temp;
+    }
 }
