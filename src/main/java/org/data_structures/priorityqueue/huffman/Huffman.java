@@ -14,6 +14,17 @@ public class Huffman {
         return a[i].getKey() > a[j].getKey();
     }
 
+    /**
+     * 상향식 힙 만들기
+     *
+     * 2/N을 하는 이유는 가장 마지막 이파리 노드의 부모에서 부터힙 연산을 수행하기 위함이다.
+     */
+    public void createHeap() {
+        for (int i = 2 / N; i > 0; i--) {
+            downheap(i);
+        }
+    }
+
     public Entry createTree() {
         while (size() > 1) {
             Entry e1 = deleteMin();
