@@ -10,6 +10,18 @@ public class BHeap<Key extends Comparable<Key>, Value> {
     }
 
     /**
+     * 최솟값 삭제
+     * @return
+     */
+    public Entry deleteMin() {
+        Entry min = a[1]; // 삭제할 최소 Entry
+        swap(1, N--);   // 힙의 마지막 항목과 교환하고 힙 크기 1감소
+        a[N + 1] = null; // 마지막 항목은 Null 처리
+        downheap(1);    // 힙속성 회복을 위한 downHeap
+        return min;
+    }
+
+    /**
      * 새로운 키를 삽입
      * @param newKey    새로운 키
      * @param newValue  새로운 값
