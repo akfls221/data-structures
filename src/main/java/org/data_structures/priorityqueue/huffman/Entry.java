@@ -15,7 +15,7 @@ public class Entry {
         this.code = code;
     }
 
-    public int getFrequency() {
+    public int getKey() {
         return frequency;
     }
 
