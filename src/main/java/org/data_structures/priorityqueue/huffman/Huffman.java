@@ -14,6 +14,19 @@ public class Huffman {
         return a[i].getKey() > a[j].getKey();
     }
 
+    public Entry createTree() {
+        while (size() > 1) {
+            Entry e1 = deleteMin();
+            Entry e2 = deleteMin();
+            Entry temp = new Entry(e1.getKey() + e2.getKey(),   //빈도수 합산
+                    e1.getWord() + e2.getWord(),    // String 이어 붙이기
+                    e1, e2, " ");   //e1, e2를 각각 왼쪽, 오른쪽 자식으로
+
+            insert(temp);   //새 노드를 힙에 삽입
+        }
+        return deleteMin(); // 한개 남은 노드(허프만 계산 이후 즉 root 노드)제거 후 반환
+    }
+
     /**
      * 최솟값 삭제
      * @return
@@ -56,5 +69,9 @@ public class Huffman {
 
         a[i] = a[j];
         a[j] = temp;
+    }
+
+    public int size() {
+        return N;
     }
 }
