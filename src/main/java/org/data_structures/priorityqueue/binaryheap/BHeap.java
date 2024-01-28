@@ -10,6 +10,17 @@ public class BHeap<Key extends Comparable<Key>, Value> {
     }
 
     /**
+     * 새로운 키를 삽입
+     * @param newKey    새로운 키
+     * @param newValue  새로운 값
+     */
+    public void insert(Key newKey, Value newValue) {
+        Entry temp = new Entry(newKey, newValue);   //entry 새성
+        a[++N] = temp;  //새로운 키를 배열 마지막 항목 다음에 저장
+        upheap(N);  //위로 올라가며 힙 속성 회복시키기 위해 재정렬
+    }
+
+    /**
      * 상향식 힙 만들기
      *
      * 2/N을 하는 이유는 가장 마지막 이파리 노드의 부모에서 부터힙 연산을 수행하기 위함이다.
