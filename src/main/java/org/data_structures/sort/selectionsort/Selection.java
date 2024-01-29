@@ -3,6 +3,17 @@ package org.data_structures.sort.selectionsort;
 public class Selection {
 
     /**
+     *  키 비교 메소드
+     *
+     * @param i
+     * @param j
+     * @return
+     */
+    private static boolean isless(Comparable i, Comparable j) {
+        return (i.compareTo(j) < 0);
+    }
+
+    /**
      * 원소 교환 메소드 최솟값을 a[i]와 바꾼다
      *
      * @param a     전체 배열
