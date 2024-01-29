@@ -1,5 +1,11 @@
 package org.data_structures.sort.selectionsort;
 
+/**
+ * 선택정렬
+ *
+ * 항상 O(n²) 수행시간이 소요
+ * 효율성 측면에서 다른 알고리즘에 비해 뒤떨어지므로 거의 활용하지 않음.
+ */
 public class Selection {
 
     /**
