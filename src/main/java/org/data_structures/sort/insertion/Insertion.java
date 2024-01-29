@@ -1,6 +1,27 @@
 package org.data_structures.sort.insertion;
 
+/**
+ * 삽입 정렬
+ *
+ * O(n²) 수행시간이 소요
+ * 이미 정렬된 파일의 뒷부분에 소량의 신규 데이터를 추가하여 정렬하는 경우 우수한 성능을 보인다.
+ */
 public class Insertion {
+
+    public static void sort(Comparable[] a) {
+        int N = a.length;
+
+        for (int i = 1; i < N; i++) {
+            for (int j = i; j > 0; j--) {
+                if (isless(a[j], a[j - 1])) {
+                    swap(a, j, j - 1);
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
     /**
      *  키 비교 메소드
      *
