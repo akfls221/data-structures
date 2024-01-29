@@ -3,6 +3,25 @@ package org.data_structures.sort.selectionsort;
 public class Selection {
 
     /**
+     * 선택 정렬
+     * 
+     * @param a 정렬하려는 메소드
+     */
+    public static void sort(Comparable[] a) {
+        int N  = a.length;
+        for (int i = 0; i < N; i++) { // 전체 배열을 루프 돌면서
+            int min = i;
+
+            for (int j = i+1; j < N; j++) { // min 탐색
+                if (isless(a[j], a[min])) {
+                    min = j;
+                }
+            }
+            swap(a, i, min);    //swap
+        }
+    }
+
+    /**
      *  키 비교 메소드
      *
      * @param i
