@@ -1,5 +1,10 @@
 package org.data_structures.sort.merge;
 
+/**
+ * 합병 정렬
+ * 
+ * 어떤 일벽에 대해서도 (O n logn) 보장
+ */
 public class Merge {
 
     public static void sort(Comparable[] a) {
