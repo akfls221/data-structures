@@ -3,7 +3,7 @@ package org.data_structures.sort.lsdsort;
 public class LSDsort {
 
     public static void sort(int[] a) {
-        int R = 10;
+        int R = 10; //1의자리 100 : 10의 자리 1000 : 100의 자리
         int N = a.length;
         int[] t = new int[N];
 
