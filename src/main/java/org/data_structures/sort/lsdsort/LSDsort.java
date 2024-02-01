@@ -1,7 +1,5 @@
 package org.data_structures.sort.lsdsort;
 
-import java.util.Arrays;
-
 public class LSDsort {
 
     public static void sort(int[] a) {
@@ -35,6 +33,10 @@ public class LSDsort {
 
             System.out.println();
         }
+    }
 
+    public static void main(String[] args) {
+        int[] a = {251, 430, 301, 540, 551, 401, 2, 10, 124, 22, 204, 115};
+        sort(a);
     }
 }
