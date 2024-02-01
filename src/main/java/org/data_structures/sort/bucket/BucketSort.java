@@ -18,4 +18,13 @@ public class BucketSort {
             }
         }
     }
+
+    public static void main(String[] args) {
+        int[] a = {2, 0, 5, 0, 3, 2, 5, 2, 3, 1, 0, 2};
+        sort(a, 10);
+        System.out.println("정렬 결과 : ");
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i] + " ");
+        }
+    }
 }
